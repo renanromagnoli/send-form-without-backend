@@ -11,11 +11,65 @@
     <form action="https://formsubmit.co/a8e8df1251188613930fd083b100e3f2" method="POST">
         <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
         <input type="hidden" name="_autoresponse" value="Recebemos o seus dados no formulário!">
-        <input type="text" name="name" placeholder="Nome">
-        <input type="email" name="email" placeholder="E-mail">
+        <input type="text" name="name" id="nome" placeholder="Nome">
+        <input type="email" id="email" name="email" placeholder="E-mail" onblur="checkMail()" onfocus="dropNoEmail()">
+        <span id="no-email"></span>
         <input type="text" name="subject" placeholder="Assunto">
         <textarea name="message" cols="30" rows="10" placeholder="Mensagem"></textarea>
         <button type="submit">Enviar</button>
     </form>
 </body>
+
+<script>
+    const inputName = document.querySelector('#nome')
+    inputName.addEventListener('focus', () => {
+        inputName.style.borderColor = 'orange'
+        inputName.placeholder = 'Informe o seu nome...'
+    })
+    inputName.addEventListener('focusout', () => {
+        inputName.placeholder = 'Nome'
+        if(inputName.value.length > 0){
+            // inputName.style.borderColor = 'green'
+            inputName.style.border = '4px solid lightgreen'
+            inputName.style.boxShadow = '0 0 20px lightgreen'
+        } else {
+            inputName.style.borderColor = '#00AFEF'
+            inputName.style.boxShadow = 'none'
+        }
+    })
+
+    function checkMail() {
+        const inputEmail = document.querySelector('#email')
+        const noEmail = document.querySelector('#no-email')
+        
+        console.log('validity: ', inputEmail.checkValidity())
+        
+        if(inputEmail.value.length == 0) {
+            inputEmail.style.borderColor = '#00AFEF'
+            inputEmail.style.boxShadow = 'none'
+            // inputEmail.style.backgroundColor = 'none'
+        }
+        if(inputEmail.value.length > 0 && !inputEmail.checkValidity()) {
+            inputEmail.style.borderColor = 'red'
+            noEmail.style.display = 'block'
+            noEmail.innerHTML = 'Email inválido!'
+            inputEmail.style.boxShadow = '0 0 20px red'
+            inputEmail.style.color = 'red'
+        }
+        if(inputEmail.checkValidity() && inputEmail.value.length > 0) {
+            inputEmail.style.borderColor = 'lightgreen'
+            inputEmail.style.boxShadow = '0 0 20px lightgreen'
+            noEmail.style.display = 'none'
+            inputEmail.style.color = 'lightgreen'
+        } 
+    }
+
+    function dropNoEmail() {
+        const noEmail = document.querySelector('#no-email')
+        const inputEmail = document.querySelector('#email')
+        inputEmail.style.color = 'white'
+        noEmail.style.display = 'none'
+    }
+    
+</script>
 </html>
