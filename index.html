@@ -54,6 +54,7 @@
     })
     name.addEventListener('focus', () => {
         if(name.value.length === 0){
+            name.style.width = '230px'
             name.style.borderColor = 'orange'
             name.style.boxShadow = '0 0 10px orange'
             name.placeholder = 'Informe o seu nome...'
@@ -111,6 +112,7 @@
     })
     subject.addEventListener('focus', () => {
         if(subject.value.length === 0){
+            subject.style.width = '230px'
             subject.style.borderColor = 'orange'
             subject.style.boxShadow = '0 0 10px orange'
             subject.placeholder = 'Coloque o título do assunto...'
