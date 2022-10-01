@@ -26,8 +26,12 @@ input {
 input:focus {
     width: 230px;
 }
+textarea {
+    min-height: 150px;
+}
 
 input, textarea {
+    min-width: 200px;
     border: 2px solid #00AFEF;
     border-radius: 5px;
     padding: 5px;
