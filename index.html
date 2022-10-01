@@ -40,35 +40,37 @@
         if(name.value.length > 0){
             
             name.style.color = 'lightgreen'
-            name.style.border = '4px solid lightgreen'
-            name.style.boxShadow = '0 0 20px lightgreen'
+            name.style.borderBottom = '2px solid lightgreen'
+            name.style.boxShadow = '0 0 10px lightgreen'
 
             // name.classList.add('fieldOk')
         } else {
             // name.style.color = 'orange'
-            name.style.border = '4px solid orange'
-            name.style.boxShadow = '0 0 20px orange'
+            name.style.borderBottom = '2px solid orange'
+            name.style.boxShadow = '0 0 10px orange'
         }
         checkFills()
     })
     name.addEventListener('focus', () => {
         if(name.value.length === 0){
             name.style.borderColor = 'orange'
-            name.style.boxShadow = '0 0 20px orange'
+            name.style.boxShadow = '0 0 10px orange'
             name.placeholder = 'Informe o seu nome...'
         }
     })
     name.addEventListener('focusout', () => {
         if(name.value.length === 0){
+            name.style.width = '200px'
             name.placeholder = 'Nome'
             
             name.style.borderColor = '#00AFEF'
-            name.style.boxShadow = 'none'
+            name.style.boxShadow = '2px 2px 10px rgba(3, 3, 3, 0.5)'
 
         } else {
             name.style.color = 'lightgreen'
-            name.style.border = '4px solid lightgreen'
-            name.style.boxShadow = '0 0 20px lightgreen'
+            name.style.borderBottom = '2px solid lightgreen'
+            name.style.boxShadow = '0 0 10px lightgreen'
+            name.style.width = '230px'
         }
     })
     
@@ -76,8 +78,8 @@
     email.addEventListener('focus', () => {
         email.style.width = '230px'
         email.style.color = 'orange'
-        email.style.border = '4px solid orange'
-        email.style.boxShadow = '0 0 20px orange'
+        email.style.borderBottom = '2px solid orange'
+        email.style.boxShadow = '0 0 10px orange'
     })
     email.addEventListener('focusout', () => {
         if(email.value.length > 0 && !email.checkValidity()) {
@@ -88,7 +90,7 @@
             
             email.style.width = '200px'
             email.style.borderColor = '#00AFEF'
-            email.style.boxShadow = 'none'
+            email.style.boxShadow = '2px 2px 10px rgba(3, 3, 3, 0.5)'
             // email.style.backgroundColor = 'none'
         }
     })
@@ -97,32 +99,35 @@
         if(subject.value.length > 0){
             // subject.style.borderColor = 'green'
             subject.style.color = 'lightgreen'
-            subject.style.border = '4px solid lightgreen'
-            subject.style.boxShadow = '0 0 20px lightgreen'
+            subject.style.borderBottom = '2px solid lightgreen'
+            subject.style.boxShadow = '0 0 10px lightgreen'
         } else {
-            subject.style.border = '4px solid orange'
-            subject.style.boxShadow = '0 0 20px orange'
+            subject.style.borderBottom = '2px solid orange'
+            subject.style.boxShadow = '0 0 10px orange'
+            
         }
         checkFills()
     })
     subject.addEventListener('focus', () => {
         if(subject.value.length === 0){
             subject.style.borderColor = 'orange'
-            subject.style.boxShadow = '0 0 20px orange'
-            subject.placeholder = 'Informe o seu nome...'
+            subject.style.boxShadow = '0 0 10px orange'
+            subject.placeholder = 'Coloque o título do assunto...'
         }
     })
     subject.addEventListener('focusout', () => {
         if(subject.value.length === 0){
-            subject.placeholder = 'Nome'
+            subject.placeholder = 'Assunto'
             
+            subject.style.width = '200px'
             subject.style.borderColor = '#00AFEF'
-            subject.style.boxShadow = 'none'
+            subject.style.boxShadow = '2px 2px 10px rgba(3, 3, 3, 0.5)'
 
         } else {
             subject.style.color = 'lightgreen'
-            subject.style.border = '4px solid lightgreen'
-            subject.style.boxShadow = '0 0 20px lightgreen'
+            subject.style.borderBottom = '2px solid lightgreen'
+            subject.style.boxShadow = '0 0 10px lightgreen'
+            subject.style.width = '230px'
         }
     })
 
@@ -132,45 +137,41 @@
         if(message.value.length > 0){
             // message.style.borderColor = 'green'
             message.style.color = 'lightgreen'
-            message.style.border = '4px solid lightgreen'
-            message.style.boxShadow = '0 0 20px lightgreen'
+            message.style.borderBottom = '2px solid lightgreen'
+            message.style.boxShadow = '0 0 10px lightgreen'
         }
         if(message.value.length === 0) {
             // message.style.color = 'orange'
-            message.style.border = '4px solid orange'
-            message.style.boxShadow = '0 0 20px orange'
+            message.style.borderBottom = '2px solid orange'
+            message.style.boxShadow = '0 0 10px orange'
         }
         checkFills()
     })
     message.addEventListener('focus', () => {
         if(message.value.length === 0){
             message.style.borderColor = 'orange'
-            message.style.boxShadow = '0 0 20px orange'
-            message.placeholder = 'Informe o seu nome...'
+            message.style.boxShadow = '0 0 10px orange'
+            message.placeholder = 'Escreva a sua mensagem...'
         }
     })
     message.addEventListener('focusout', () => {
         if(message.value.length === 0){
-            message.placeholder = 'Nome'
+            message.placeholder = 'Mensagem'
             
             message.style.borderColor = '#00AFEF'
-            message.style.boxShadow = 'none'
+            message.style.boxShadow = '2px 2px 10px rgba(3, 3, 3, 0.5)'
 
         } else {
             message.style.color = 'lightgreen'
-            message.style.border = '4px solid lightgreen'
-            message.style.boxShadow = '0 0 20px lightgreen'
+            message.style.borderBottom = '2px solid lightgreen'
+            message.style.boxShadow = '0 0 10px lightgreen'
         }
     })
     
     
 
 
-    if(button.disabled) {
-        button.title = 'Preencha os campos acima'
-    } else {
-        button.title = 'Enviar'
-    }
+    
 
     
     
@@ -182,14 +183,14 @@
 
         if(email.value.length === 0) {
             email.style.borderColor = 'orange'
-            email.style.boxShadow = '0 0 20px orange'
+            email.style.boxShadow = '0 0 10px orange'
         }
         
         
         if(email.value.length > 0 && !email.checkValidity()) {
             email.style.width = '230px'
             email.style.borderColor = 'red'
-            email.style.boxShadow = '0 0 20px red'
+            email.style.boxShadow = '0 0 10px red'
             email.style.color = 'red'
             // setTimeout(() => {
             //     noEmail.style.display = 'block'
@@ -197,15 +198,20 @@
             // }, 3000)
         }
         if(email.checkValidity() && email.value.length > 0) {
-            email.style.border = '4px solid lightgreen'
-            email.style.boxShadow = '0 0 20px lightgreen'
+            email.style.borderBottom = '2px solid lightgreen'
+            email.style.boxShadow = '0 0 10px lightgreen'
             email.style.color = 'lightgreen'
         } 
         checkFills()
     }
     
     function checkFills() {
-        button.disabled = !(name.value && email.value && email.checkValidity() && subject.value && message.value) 
+        button.disabled = !(name.value && email.value && email.checkValidity() && subject.value && message.value)
+        if(button.disabled) {
+            button.title = 'Preencha os campos acima para poder enviar'
+        } else {
+            button.title = 'Enviar'
+        }
     }
 
     function clickOnEmailField() {
