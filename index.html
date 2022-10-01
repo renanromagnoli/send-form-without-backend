@@ -30,31 +30,47 @@
     const button = document.querySelector('#botao')
     const noEmail = document.querySelector('#no-email')
 
-    name.addEventListener('input', checkFills)
-    email.addEventListener('input', checkMail)
-    subject.addEventListener('input', checkFills)
-    message.addEventListener('input', checkFills)
-    email.addEventListener('focusout', () => {
-        if(email.value.length > 0 && !email.checkValidity()) {
-            noEmail.style.display = 'block'
-            noEmail.innerHTML = 'Email inválido!'
+    // name.addEventListener('input', checkFills)
+    // subject.addEventListener('input', checkFills)
+    // message.addEventListener('input', checkFills)
+    
+    name.addEventListener('input', () => {
+        if(name.value.length > 0){
+            
+            name.style.color = 'lightgreen'
+            name.style.border = '4px solid lightgreen'
+            name.style.boxShadow = '0 0 20px lightgreen'
+
+            // name.classList.add('fieldOk')
+        } else {
+            // name.style.color = 'orange'
+            name.style.border = '4px solid orange'
+            name.style.boxShadow = '0 0 20px orange'
+        }
+        checkFills()
+    })
+    name.addEventListener('focus', () => {
+        if(name.value.length === 0){
+            name.style.borderColor = 'orange'
+            name.style.boxShadow = '0 0 20px orange'
+            name.placeholder = 'Informe o seu nome...'
         }
     })
+    name.addEventListener('focusout', () => {
+        if(name.value.length === 0){
+            name.placeholder = 'Nome'
+            
+            name.style.borderColor = '#00AFEF'
+            name.style.boxShadow = 'none'
 
-    message.addEventListener('input', () => {
-        if(message.value.length > 0){
-            // message.style.borderColor = 'green'
-            message.style.color = 'lightgreen'
-            message.style.border = '4px solid lightgreen'
-            message.style.boxShadow = '0 0 20px lightgreen'
-    }})
-    subject.addEventListener('focusout', () => {
-        if(subject.value.length > 0){
-            // subject.style.borderColor = 'green'
-            subject.style.color = 'lightgreen'
-            subject.style.border = '4px solid lightgreen'
-            subject.style.boxShadow = '0 0 20px lightgreen'
-    }})
+        } else {
+            name.style.color = 'lightgreen'
+            name.style.border = '4px solid lightgreen'
+            name.style.boxShadow = '0 0 20px lightgreen'
+        }
+    })
+    
+    email.addEventListener('input', checkMail)
     email.addEventListener('focus', () => {
         email.style.width = '230px'
         email.style.color = 'orange'
@@ -62,6 +78,10 @@
         email.style.boxShadow = '0 0 20px orange'
     })
     email.addEventListener('focusout', () => {
+        if(email.value.length > 0 && !email.checkValidity()) {
+            noEmail.style.display = 'block'
+            noEmail.innerHTML = 'Email inválido!'
+        }
         if(email.value.length === 0) {
             
             email.style.width = '200px'
@@ -70,6 +90,77 @@
             // email.style.backgroundColor = 'none'
         }
     })
+
+    subject.addEventListener('input', () => {
+        if(subject.value.length > 0){
+            // subject.style.borderColor = 'green'
+            subject.style.color = 'lightgreen'
+            subject.style.border = '4px solid lightgreen'
+            subject.style.boxShadow = '0 0 20px lightgreen'
+        } else {
+            subject.style.border = '4px solid orange'
+            subject.style.boxShadow = '0 0 20px orange'
+        }
+        checkFills()
+    })
+    subject.addEventListener('focus', () => {
+        if(subject.value.length === 0){
+            subject.style.borderColor = 'orange'
+            subject.style.boxShadow = '0 0 20px orange'
+            subject.placeholder = 'Informe o seu nome...'
+        }
+    })
+    subject.addEventListener('focusout', () => {
+        if(subject.value.length === 0){
+            subject.placeholder = 'Nome'
+            
+            subject.style.borderColor = '#00AFEF'
+            subject.style.boxShadow = 'none'
+
+        } else {
+            subject.style.color = 'lightgreen'
+            subject.style.border = '4px solid lightgreen'
+            subject.style.boxShadow = '0 0 20px lightgreen'
+        }
+    })
+
+
+
+    message.addEventListener('input', () => {
+        if(message.value.length > 0){
+            // message.style.borderColor = 'green'
+            message.style.color = 'lightgreen'
+            message.style.border = '4px solid lightgreen'
+            message.style.boxShadow = '0 0 20px lightgreen'
+        }
+        if(message.value.length === 0) {
+            // message.style.color = 'orange'
+            message.style.border = '4px solid orange'
+            message.style.boxShadow = '0 0 20px orange'
+        }
+        checkFills()
+    })
+    message.addEventListener('focus', () => {
+        if(message.value.length === 0){
+            message.style.borderColor = 'orange'
+            message.style.boxShadow = '0 0 20px orange'
+            message.placeholder = 'Informe o seu nome...'
+        }
+    })
+    message.addEventListener('focusout', () => {
+        if(message.value.length === 0){
+            message.placeholder = 'Nome'
+            
+            message.style.borderColor = '#00AFEF'
+            message.style.boxShadow = 'none'
+
+        } else {
+            message.style.color = 'lightgreen'
+            message.style.border = '4px solid lightgreen'
+            message.style.boxShadow = '0 0 20px lightgreen'
+        }
+    })
+    
     
 
 
@@ -79,25 +170,7 @@
         button.title = 'Enviar'
     }
 
-    name.addEventListener('focus', () => {
-        name.style.borderColor = 'orange'
-        name.style.boxShadow = '0 0 20px orange'
-        name.placeholder = 'Informe o seu nome...'
-    })
-    name.addEventListener('focusout', () => {
-        name.placeholder = 'Nome'
-        if(name.value.length > 0){
-            
-            name.style.color = 'lightgreen'
-            name.style.border = '4px solid lightgreen'
-            name.style.boxShadow = '0 0 20px lightgreen'
-
-            // name.classList.add('fieldOk')
-        } else {
-            name.style.borderColor = '#00AFEF'
-            name.style.boxShadow = 'none'
-        }
-    })
+    
     
     function checkMail() {
         

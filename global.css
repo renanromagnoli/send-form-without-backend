@@ -93,9 +93,10 @@ button {
 }
 
 button:disabled {
-    background-color: #444444;
+    background-color: transparent;
     color: lightslategray;
     cursor: not-allowed;
+    border: 2px solid lightslategray;
 }
 
 /* .fieldOk {
