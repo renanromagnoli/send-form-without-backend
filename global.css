@@ -65,6 +65,7 @@ input:focus {
     width: 230px;
 }
 textarea {
+    height: 160px;
     min-height: 150px;
 }
 
