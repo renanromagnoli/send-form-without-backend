@@ -9,67 +9,136 @@
 </head>
 <body>
     <form action="https://formsubmit.co/a8e8df1251188613930fd083b100e3f2" method="POST">
+
         <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
         <input type="hidden" name="_autoresponse" value="Recebemos o seus dados no formulário!">
-        <input type="text" name="name" id="nome" placeholder="Nome">
-        <input type="email" id="email" name="email" placeholder="E-mail" onblur="checkMail()" onfocus="dropNoEmail()">
+
+        <input type="text" name="name" id="nome" placeholder="Nome" required>
+        <input type="email" id="email" name="email" placeholder="E-mail" onblur="checkMail()" onfocus="clickOnEmailField()" required>
         <span id="no-email"></span>
-        <input type="text" name="subject" placeholder="Assunto">
-        <textarea name="message" cols="30" rows="10" placeholder="Mensagem"></textarea>
-        <button type="submit">Enviar</button>
+        <input type="text" id='assunto' name="subject" placeholder="Assunto" required>
+        <textarea name="message" id="mensagem" cols="30" rows="10" placeholder="Mensagem" required></textarea>
+        <button type="submit" id="botao" disabled>Enviar</button>
     </form>
 </body>
 
 <script>
-    const inputName = document.querySelector('#nome')
-    inputName.addEventListener('focus', () => {
-        inputName.style.borderColor = 'orange'
-        inputName.placeholder = 'Informe o seu nome...'
-    })
-    inputName.addEventListener('focusout', () => {
-        inputName.placeholder = 'Nome'
-        if(inputName.value.length > 0){
-            // inputName.style.borderColor = 'green'
-            inputName.style.border = '4px solid lightgreen'
-            inputName.style.boxShadow = '0 0 20px lightgreen'
-        } else {
-            inputName.style.borderColor = '#00AFEF'
-            inputName.style.boxShadow = 'none'
-        }
-    })
+    const name = document.querySelector('#nome')
+    const email = document.querySelector('#email')
+    const subject = document.querySelector('#assunto')
+    const message = document.querySelector('#mensagem')
+    const button = document.querySelector('#botao')
+    const noEmail = document.querySelector('#no-email')
 
-    function checkMail() {
-        const inputEmail = document.querySelector('#email')
-        const noEmail = document.querySelector('#no-email')
-        
-        console.log('validity: ', inputEmail.checkValidity())
-        
-        if(inputEmail.value.length == 0) {
-            inputEmail.style.borderColor = '#00AFEF'
-            inputEmail.style.boxShadow = 'none'
-            // inputEmail.style.backgroundColor = 'none'
-        }
-        if(inputEmail.value.length > 0 && !inputEmail.checkValidity()) {
-            inputEmail.style.borderColor = 'red'
+    name.addEventListener('input', checkFills)
+    email.addEventListener('input', checkMail)
+    subject.addEventListener('input', checkFills)
+    message.addEventListener('input', checkFills)
+    email.addEventListener('focusout', () => {
+        if(email.value.length > 0 && !email.checkValidity()) {
             noEmail.style.display = 'block'
             noEmail.innerHTML = 'Email inválido!'
-            inputEmail.style.boxShadow = '0 0 20px red'
-            inputEmail.style.color = 'red'
         }
-        if(inputEmail.checkValidity() && inputEmail.value.length > 0) {
-            inputEmail.style.borderColor = 'lightgreen'
-            inputEmail.style.boxShadow = '0 0 20px lightgreen'
-            noEmail.style.display = 'none'
-            inputEmail.style.color = 'lightgreen'
-        } 
+    })
+
+    message.addEventListener('input', () => {
+        if(message.value.length > 0){
+            // message.style.borderColor = 'green'
+            message.style.color = 'lightgreen'
+            message.style.border = '4px solid lightgreen'
+            message.style.boxShadow = '0 0 20px lightgreen'
+    }})
+    subject.addEventListener('focusout', () => {
+        if(subject.value.length > 0){
+            // subject.style.borderColor = 'green'
+            subject.style.color = 'lightgreen'
+            subject.style.border = '4px solid lightgreen'
+            subject.style.boxShadow = '0 0 20px lightgreen'
+    }})
+    email.addEventListener('focus', () => {
+        email.style.width = '230px'
+        email.style.color = 'orange'
+        email.style.border = '4px solid orange'
+        email.style.boxShadow = '0 0 20px orange'
+    })
+    email.addEventListener('focusout', () => {
+        if(email.value.length === 0) {
+            
+            email.style.width = '200px'
+            email.style.borderColor = '#00AFEF'
+            email.style.boxShadow = 'none'
+            // email.style.backgroundColor = 'none'
+        }
+    })
+    
+
+
+    if(button.disabled) {
+        button.title = 'Preencha os campos acima'
+    } else {
+        button.title = 'Enviar'
     }
 
-    function dropNoEmail() {
-        const noEmail = document.querySelector('#no-email')
-        const inputEmail = document.querySelector('#email')
-        inputEmail.style.color = 'white'
+    name.addEventListener('focus', () => {
+        name.style.borderColor = 'orange'
+        name.style.boxShadow = '0 0 20px orange'
+        name.placeholder = 'Informe o seu nome...'
+    })
+    name.addEventListener('focusout', () => {
+        name.placeholder = 'Nome'
+        if(name.value.length > 0){
+            
+            name.style.color = 'lightgreen'
+            name.style.border = '4px solid lightgreen'
+            name.style.boxShadow = '0 0 20px lightgreen'
+
+            // name.classList.add('fieldOk')
+        } else {
+            name.style.borderColor = '#00AFEF'
+            name.style.boxShadow = 'none'
+        }
+    })
+    
+    function checkMail() {
+        
+        email.placeholder = 'E-mail'
+        noEmail.style.display = 'none'
+        // console.log('validity: ', email.checkValidity())
+
+        if(email.value.length === 0) {
+            email.style.borderColor = 'orange'
+            email.style.boxShadow = '0 0 20px orange'
+        }
+        
+        
+        if(email.value.length > 0 && !email.checkValidity()) {
+            email.style.width = '230px'
+            email.style.borderColor = 'red'
+            email.style.boxShadow = '0 0 20px red'
+            email.style.color = 'red'
+            // setTimeout(() => {
+            //     noEmail.style.display = 'block'
+            //     noEmail.innerHTML = 'Email inválido!'
+            // }, 3000)
+        }
+        if(email.checkValidity() && email.value.length > 0) {
+            email.style.border = '4px solid lightgreen'
+            email.style.boxShadow = '0 0 20px lightgreen'
+            email.style.color = 'lightgreen'
+        } 
+        checkFills()
+    }
+    
+    function checkFills() {
+        button.disabled = !(name.value && email.value && email.checkValidity() && subject.value && message.value) 
+    }
+
+    function clickOnEmailField() {
+        email.style.color = 'white'
+        email.placeholder = 'Informe um e-mail válido...'
         noEmail.style.display = 'none'
     }
+
     
 </script>
 </html>
