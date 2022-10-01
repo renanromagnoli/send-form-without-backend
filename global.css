@@ -39,7 +39,8 @@ form {
     /* position: absolute; */
     padding: 30px;
     width: 400px;
-    height: 60vh;
+    /* margin: 10px auto; */
+    /* height: 60vh; */
     box-shadow: 2px 2px 8px rgba(3, 3, 3, 0.5);
     display: flex;
     flex-direction: column;
@@ -60,6 +61,7 @@ form input, button {
 
 input {
     width: 200px;
+    padding: 20px 10px;
     transition: .5s;
 }
 input:focus {
@@ -68,6 +70,7 @@ input:focus {
 textarea {
     height: 160px;
     min-height: 150px;
+    padding: 10px;
 }
 
 input, textarea {
@@ -76,7 +79,7 @@ input, textarea {
     border: 0;
     border-bottom: 2px solid #00AFEF;
     border-radius: 5px;
-    padding: 10px 10px;
+    
     margin: 15px;
     background-color: inherit;
     color: #fff;
@@ -113,7 +116,7 @@ span {
     font-size: .8rem;
     font-weight: bold;
     display: none;
-    width: 240px;
+    width: 230px;
     margin-top: -15px;
     background-color: red;
     color: white;
